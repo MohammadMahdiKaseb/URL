@@ -1,0 +1,55 @@
+from tkinter import *
+import webbrowser
+
+root = Tk()
+
+new = 1
+url = "https://www.google.com"
+
+def openweb():
+    webbrowser.open(url,new=new)
+
+Btn = Button(root, text = "This opens Google",command=openweb)
+Btn.pack()
+
+root.mainloop()
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+********It has a problem******
+
+import sys
+import os 
+import tkinter
+from pytube import *
+from tkinter import *
+
+top=tkinter.Tk()
+yt_variable = StringVar()
+
+def helloCallBack():
+    #Select youtube link you want to upload and print contents
+    yt = YouTube(yt_entry)
+    print(yt.get_videos())
+    print(yt.filename)
+    #Set parameters for youtube video
+    video = yt.get('mp4', '720p')
+    print(yt.videos)
+    print("success")
+
+    #Select download location for youtube video
+    video.download('C:/Users/coope/Dropbox/BrokenBow/Music/')
+    print("Downloaded " + str(yt.filename) + " to " + str(video.download) + " successfully!")
+    return
+
+yt_label=tkinter.Label(top,text='Paste Link + Press Go')
+yt_label.pack()
+yt_button=tkinter.Button(top,text='Go',command= helloCallBack)
+yt_button.pack()
+yt_entry=tkinter.Entry(top, textvariable=yt_variable)
+yt_entry.get()
+yt_entry.pack()
+
+top.mainloop()
